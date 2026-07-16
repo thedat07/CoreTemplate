@@ -12,23 +12,22 @@ namespace BlitzyUI.UIExample
         public Text messageLabel;
         public Button okButton;
 
+        private IUIService uiService;
+
         public override void OnSetup()
         {
-            // Run one-time setup operations here.
+            uiService = CoreBootstrapper.Services.UI;
             okButton.onClick.AddListener(HandleOkClicked);
         }
 
         public override void OnPush(Data data)
         {
             messageLabel.text = data.Get<string>("message");
-
-            // Be sure to call PushFinished to signal the end of the push.
             PushFinished();
         }
 
         public override void OnPop()
         {
-            // Be sure to call PopFinished to signal the end of the pop.
             PopFinished();
         }
 
@@ -42,7 +41,7 @@ namespace BlitzyUI.UIExample
 
         private void HandleOkClicked ()
         {
-            UIManager.Instance.QueuePop(null);
+            uiService.CloseTopScreen();
         }
     }
 }

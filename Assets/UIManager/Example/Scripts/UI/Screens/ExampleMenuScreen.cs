@@ -15,9 +15,12 @@ namespace BlitzyUI.UIExample
         public Button buttonC;
         public Button buttonD;
 
+        private IUIService uiService;
+
         public override void OnSetup()
         {
-            // Run one-time setup operations here.
+            uiService = CoreBootstrapper.Services.UI;
+
             buttonA.onClick.AddListener(HandleButtonAClicked);
             buttonB.onClick.AddListener(HandleButtonBClicked);
             buttonC.onClick.AddListener(HandleButtonCClicked);
@@ -27,14 +30,11 @@ namespace BlitzyUI.UIExample
         public override void OnPush(Data data)
         {
             headerLabel.text = "Click on a button...";
-
-            // Be sure to call PushFinished to signal the end of the push.
             PushFinished();
         }
 
         public override void OnPop()
         {
-            // Be sure to call PopFinished to signal the end of the pop.
             PopFinished();
         }
 
@@ -77,7 +77,7 @@ namespace BlitzyUI.UIExample
             var screenData = new Screen.Data();
             screenData.Add("message", message);
 
-            UIManager.Instance.QueuePush(GameManager.ScreenId_ExamplePopup, screenData, "ExamplePopupScreen", null);
+            uiService.OpenScreen(GameManager.ScreenId_ExamplePopup, screenData, "ExamplePopupScreen");
         }
     }
 }
