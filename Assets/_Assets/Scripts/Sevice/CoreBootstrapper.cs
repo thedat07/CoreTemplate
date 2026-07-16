@@ -4,6 +4,12 @@ using UnityServiceLocator;
 
 public class CoreBootstrapper : MonoBehaviour
 {
+    /// <summary>Static cache cho các scene scripts cần truy cập nhanh.</summary>
+    public static class Services
+    {
+        public static ILogEventService Trigger { get; set; }
+    }
+
     ServiceLocator Container => ServiceLocator.Global;
 
     private void Start()
@@ -63,6 +69,15 @@ public class CoreBootstrapper : MonoBehaviour
         {
             Container.Register<ISceneService>(new SceneService());
             Debug.Log("[CoreBootstrapper] SceneService registered");
+        }
+
+        // Trigger
+        if (!Container.TryGet(out ILogEventService _))
+        {
+            var svc = new LogEventService();
+            Container.Register<ILogEventService>(svc);
+            Services.Trigger = svc;
+            Debug.Log("[CoreBootstrapper] TriggerService registered");
         }
 
         // Audio

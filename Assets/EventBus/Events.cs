@@ -194,13 +194,16 @@ public enum LoadingState
 }
 
 // ============================================
-// Legacy samples (giữ lại để tham khảo)
+// Analytics Events — giống Firebase Analytics
 // ============================================
 
-public struct TestEvent : IEvent { }
-
-public struct PlayerEvent : IEvent
+/// <summary>Fired when an analytics event is logged (TriggerService)</summary>
+public struct AnalyticsEvent : IEvent
 {
-    public int health;
-    public int mana;
+    public string EventName { get; set; }
+    public System.Collections.Generic.IDictionary<string, object> Parameters { get; set; }
 }
+
+// ============================================
+// Legacy samples (giữ lại để tham khảo)
+// ============================================
