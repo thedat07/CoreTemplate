@@ -1,23 +1,19 @@
 using System.Collections.Generic;
-using UnityServiceLocator;
 using UnityEngine;
 
-public class AudioService : MonoBehaviour, IAudioService
+public class AudioService : IAudioService
 {
-    #region Inspector
-
-    [Header("Audio Sources")]
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private int sfxPoolSize = 5;
-
-    #endregion
-
     #region Private Fields
 
     private const string DATA_KEY_PREFIX = "Audio_";
+    private const string GAMEOBJECT_NAME = "[AudioService]";
 
     private IDataService dataService;
+    private GameObject hostObject;
+    private AudioSource musicSource;
+    private List<AudioSource> sfxPool;
 
+    private int sfxPoolSize = 5;
     private float masterVolume = 1f;
     private float sfxVolume = 1f;
     private float musicVolume = 1f;
@@ -25,9 +21,6 @@ public class AudioService : MonoBehaviour, IAudioService
     private bool masterMuted;
     private bool sfxMuted;
     private bool musicMuted;
-
-    private List<AudioSource> sfxPool;
-    private AudioSource musicSourceInstance;
 
     #endregion
 
@@ -80,29 +73,29 @@ public class AudioService : MonoBehaviour, IAudioService
         if (isInitialized) return;
         isInitialized = true;
 
+        // Tạo GameObject ẩn để host AudioSources
+        hostObject = new GameObject(GAMEOBJECT_NAME);
+        Object.DontDestroyOnLoad(hostObject);
+
         // Music source
-        if (musicSource == null)
-            musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource = hostObject.AddComponent<AudioSource>();
         musicSource.playOnAwake = false;
         musicSource.loop = true;
         musicSource.spatialBlend = 0f;
-        musicSourceInstance = musicSource;
 
         // SFX pool
         sfxPool = new List<AudioSource>(sfxPoolSize);
         for (int i = 0; i < sfxPoolSize; i++)
         {
-            var source = gameObject.AddComponent<AudioSource>();
+            var source = hostObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
             source.spatialBlend = 0f;
             sfxPool.Add(source);
         }
 
-        this.dataService = dataService ?? ServiceLocator.Global.Get<IDataService>();
+        this.dataService = dataService;
         LoadVolumeSettings();
         ApplyVolume();
-
-        DontDestroyOnLoad(gameObject);
     }
 
     #endregion
@@ -140,7 +133,7 @@ public class AudioService : MonoBehaviour, IAudioService
                 return sfxPool[i];
 
         // Expand pool
-        var newSource = gameObject.AddComponent<AudioSource>();
+        var newSource = hostObject.AddComponent<AudioSource>();
         newSource.playOnAwake = false;
         newSource.spatialBlend = 0f;
         sfxPool.Add(newSource);
@@ -155,21 +148,21 @@ public class AudioService : MonoBehaviour, IAudioService
     {
         if (clip == null) return;
 
-        musicSourceInstance.Stop();
-        musicSourceInstance.clip = clip;
-        musicSourceInstance.loop = loop;
-        musicSourceInstance.volume = CalculateMusicVolume(volume);
-        musicSourceInstance.Play();
+        musicSource.Stop();
+        musicSource.clip = clip;
+        musicSource.loop = loop;
+        musicSource.volume = CalculateMusicVolume(volume);
+        musicSource.Play();
     }
 
-    public void StopMusic() => musicSourceInstance.Stop();
+    public void StopMusic() => musicSource.Stop();
 
-    public void PauseMusic() => musicSourceInstance.Pause();
+    public void PauseMusic() => musicSource.Pause();
 
     public void ResumeMusic()
     {
-        if (!musicSourceInstance.isPlaying)
-            musicSourceInstance.UnPause();
+        if (!musicSource.isPlaying)
+            musicSource.UnPause();
     }
 
     #endregion
@@ -196,8 +189,8 @@ public class AudioService : MonoBehaviour, IAudioService
             if (sfxPool[i] != null)
                 sfxPool[i].volume = CalculateSfxVolume(1f);
 
-        if (musicSourceInstance != null)
-            musicSourceInstance.volume = CalculateMusicVolume(1f);
+        if (musicSource != null)
+            musicSource.volume = CalculateMusicVolume(1f);
     }
 
     private void RaiseAudioSettingsEvent()

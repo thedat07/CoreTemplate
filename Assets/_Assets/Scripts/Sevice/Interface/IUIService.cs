@@ -8,20 +8,11 @@ public interface IUIService
     UScreen.Id SettingsScreenId { get; }
     UScreen.Id GameplayScreenId { get; }
     UScreen.Id PopupScreenId { get; }
-    UScreen.Id LoadingScreenId { get; }
-
     // --- Navigation ---
     void OpenScreen(UScreen.Id id, UScreen.Data data = null, string prefabName = null, Action onPushed = null);
     void CloseTopScreen(Action onPopped = null);
     void CloseToScreen(UScreen.Id id, bool include = false, Action onPopped = null);
     void CloseAll();
-
-    // --- Loading Screen ---
-    void ShowLoading(string message = null, bool showProgress = false);
-    void UpdateLoadingProgress(float progress);
-    void UpdateLoadingMessage(string message);
-    void HideLoading(Action onComplete = null);
-    bool IsLoading { get; }
 
     // --- Query ---
     UScreen GetTopScreen();

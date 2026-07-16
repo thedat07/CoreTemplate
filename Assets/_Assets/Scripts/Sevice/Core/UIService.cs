@@ -7,7 +7,6 @@ using UScreen = BlitzyUI.Screen;
 /*
  * UIService — Wrapper quản lý UI qua BlitzyUI.
  * - Push / Pop screen theo stack
- * - Màn hình loading riêng
  * - Fire EventBus khi UI thay đổi
  */
 
@@ -19,80 +18,6 @@ public class UIService : IUIService
     public UScreen.Id SettingsScreenId { get; } = new UScreen.Id("Settings", "SettingsScreen");
     public UScreen.Id GameplayScreenId { get; } = new UScreen.Id("Gameplay", "GameplayScreen");
     public UScreen.Id PopupScreenId    { get; } = new UScreen.Id("Popup",    "PopupScreen");
-    public UScreen.Id LoadingScreenId  { get; } = new UScreen.Id("Loading",  "LoadingPopupScreen");
-
-    #endregion
-
-    #region Loading State
-
-    private bool isLoading;
-    private string loadingMessage = "Loading...";
-    private float loadingProgress;
-
-    public bool IsLoading => isLoading;
-
-    public void ShowLoading(string message = null, bool showProgress = false)
-    {
-        if (isLoading) return;
-        isLoading = true;
-        loadingMessage = message ?? "Loading...";
-        loadingProgress = 0f;
-
-        // Chỉ fire event — UI listener tự show loading screen
-        EventBus<UILoadingEvent>.Raise(new UILoadingEvent
-        {
-            State = LoadingState.Show,
-            Message = loadingMessage,
-            Progress = 0f
-        });
-    }
-
-    public void UpdateLoadingProgress(float progress)
-    {
-        if (!isLoading) return;
-        loadingProgress = Mathf.Clamp01(progress);
-
-        EventBus<UILoadingEvent>.Raise(new UILoadingEvent
-        {
-            State = LoadingState.Update,
-            Message = loadingMessage,
-            Progress = loadingProgress
-        });
-    }
-
-    public void UpdateLoadingMessage(string message)
-    {
-        if (!isLoading) return;
-        loadingMessage = message;
-
-        EventBus<UILoadingEvent>.Raise(new UILoadingEvent
-        {
-            State = LoadingState.Update,
-            Message = loadingMessage,
-            Progress = loadingProgress
-        });
-    }
-
-    public void HideLoading(Action onComplete = null)
-    {
-        if (!isLoading)
-        {
-            onComplete?.Invoke();
-            return;
-        }
-
-        isLoading = false;
-        loadingProgress = 1f;
-
-        EventBus<UILoadingEvent>.Raise(new UILoadingEvent
-        {
-            State = LoadingState.Hide,
-            Message = loadingMessage,
-            Progress = 1f
-        });
-
-        onComplete?.Invoke();
-    }
 
     #endregion
 

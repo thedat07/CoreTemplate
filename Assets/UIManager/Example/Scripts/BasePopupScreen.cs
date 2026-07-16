@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityServiceLocator;
 
 public class BasePopupScreen : BlitzyUI.Screen
 {
-    private IUIService uiService;
+    protected IUIService uiService;
 
     public override void OnSetup()
     {
-        uiService = CoreBootstrapper.Services.UI;
+        uiService = ServiceLocator.Global.Get<IUIService>();
     }
 
     public override void OnPush(Data data)
@@ -18,7 +16,7 @@ public class BasePopupScreen : BlitzyUI.Screen
 
     public override void OnPop()
     {
-
+        PopFinished();
     }
 
     public override void OnFocus()
@@ -29,7 +27,7 @@ public class BasePopupScreen : BlitzyUI.Screen
     {
     }
 
-    public void CloseTopScreen()
+    protected virtual void CloseTopScreen()
     {
         uiService.CloseTopScreen();
     }

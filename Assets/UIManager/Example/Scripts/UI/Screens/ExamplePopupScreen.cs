@@ -2,46 +2,32 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityServiceLocator;
 
 #pragma warning disable 0649
 
 namespace BlitzyUI.UIExample
 {
-    public class ExamplePopupScreen : BlitzyUI.Screen
+    public class ExamplePopupScreen : BasePopupScreen
     {
         public Text messageLabel;
         public Button okButton;
 
-        private IUIService uiService;
-
         public override void OnSetup()
         {
-            uiService = CoreBootstrapper.Services.UI;
+            base.OnSetup();
             okButton.onClick.AddListener(HandleOkClicked);
         }
 
         public override void OnPush(Data data)
         {
+            base.OnPush(data);
             messageLabel.text = data.Get<string>("message");
-            PushFinished();
         }
 
-        public override void OnPop()
+        private void HandleOkClicked()
         {
-            PopFinished();
-        }
-
-        public override void OnFocus()
-        {
-        }
-
-        public override void OnFocusLost()
-        {
-        }
-
-        private void HandleOkClicked ()
-        {
-            uiService.CloseTopScreen();
+            CloseTopScreen();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityServiceLocator;
 
 namespace BlitzyUI.UIExample
 {
@@ -10,19 +11,13 @@ namespace BlitzyUI.UIExample
 
         private void Start()
         {
-            uiService = CoreBootstrapper.Services.UI;
-
-            uiService.ShowLoading("Preparing...");
+            uiService = ServiceLocator.Global.Get<IUIService>();
 
             uiService.OpenScreen(
                 new Screen.Id("ExampleMenu"),
                 null,
                 "ExampleMenuScreen",
-                () =>
-                {
-                    // Load xong menu rồi mới tắt loading
-                    uiService.HideLoading();
-                }
+                () => Debug.Log("[GameManager] ExampleMenuScreen opened")
             );
         }
     }

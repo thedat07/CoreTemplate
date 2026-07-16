@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BlitzyUI.UIExample
 {
-    public class ExampleMenuScreen : BlitzyUI.Screen
+    public class ExampleMenuScreen : BasePopupScreen
     {
         public Text headerLabel;
         public Button buttonA;
@@ -15,11 +15,9 @@ namespace BlitzyUI.UIExample
         public Button buttonC;
         public Button buttonD;
 
-        private IUIService uiService;
-
         public override void OnSetup()
         {
-            uiService = CoreBootstrapper.Services.UI;
+            base.OnSetup();
 
             buttonA.onClick.AddListener(HandleButtonAClicked);
             buttonB.onClick.AddListener(HandleButtonBClicked);
@@ -29,13 +27,8 @@ namespace BlitzyUI.UIExample
 
         public override void OnPush(Data data)
         {
+            base.OnPush(data);
             headerLabel.text = "Click on a button...";
-            PushFinished();
-        }
-
-        public override void OnPop()
-        {
-            PopFinished();
         }
 
         public override void OnFocus()
@@ -48,31 +41,31 @@ namespace BlitzyUI.UIExample
             headerLabel.gameObject.SetActive(false);
         }
 
-        private void HandleButtonAClicked ()
+        private void HandleButtonAClicked()
         {
             DisplayPopup("You clicked a button, good job!");
             headerLabel.text = "Button A clicked. Click another...";
         }
 
-        private void HandleButtonBClicked ()
+        private void HandleButtonBClicked()
         {
             DisplayPopup("Look at those button mashing skills!");
             headerLabel.text = "Button B clicked. Click another...";
         }
 
-        private void HandleButtonCClicked ()
+        private void HandleButtonCClicked()
         {
             DisplayPopup("Your a natural, do you think you could click another but with more pizzazz?");
             headerLabel.text = "Button C clicked. Click another...";
         }
 
-        private void HandleButtonDClicked ()
+        private void HandleButtonDClicked()
         {
             DisplayPopup("If you keep clicking buttons like that, you are gonna put me out of the job!");
             headerLabel.text = "Button D clicked. Click another...";
         }
 
-        private void DisplayPopup (string message)
+        private void DisplayPopup(string message)
         {
             var screenData = new Screen.Data();
             screenData.Add("message", message);
