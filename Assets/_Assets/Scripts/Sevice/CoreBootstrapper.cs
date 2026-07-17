@@ -89,5 +89,12 @@ public class CoreBootstrapper : MonoBehaviour
             Container.Register<IAudioService>(audio);
             Debug.Log("[CoreBootstrapper] AudioService registered");
         }
+
+        // PowerUp
+        if (!Container.TryGet(out IPowerUpService _))
+        {
+            Container.Register<IPowerUpService>(new PowerUpService());
+            Debug.Log("[CoreBootstrapper] PowerUpService registered");
+        }
     }
 }
