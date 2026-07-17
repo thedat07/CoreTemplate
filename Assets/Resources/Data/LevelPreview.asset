@@ -1,0 +1,537 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f6d2e0f9c59b14b9d2f5b757fa04b5, type: 3}
+  m_Name: LevelPreview
+  m_EditorClassIdentifier: 
+  SheetName: Assets/QuickSheet/Data/CircleDefense_UpgradeBalance_Base.xlsx
+  WorksheetName: LevelPreview
+  dataArray:
+  - poweruptype: 0
+    level: 1
+    value: 10
+    upgradecost: 30
+  - poweruptype: 0
+    level: 2
+    value: 12
+    upgradecost: 35
+  - poweruptype: 0
+    level: 3
+    value: 14
+    upgradecost: 42
+  - poweruptype: 0
+    level: 4
+    value: 16
+    upgradecost: 49
+  - poweruptype: 0
+    level: 5
+    value: 18
+    upgradecost: 58
+  - poweruptype: 0
+    level: 6
+    value: 20
+    upgradecost: 69
+  - poweruptype: 0
+    level: 7
+    value: 22
+    upgradecost: 81
+  - poweruptype: 0
+    level: 8
+    value: 24
+    upgradecost: 96
+  - poweruptype: 0
+    level: 9
+    value: 26
+    upgradecost: 113
+  - poweruptype: 0
+    level: 10
+    value: 28
+    upgradecost: 133
+  - poweruptype: 1
+    level: 1
+    value: 1
+    upgradecost: 40
+  - poweruptype: 1
+    level: 2
+    value: 1.08
+    upgradecost: 48
+  - poweruptype: 1
+    level: 3
+    value: 1.16
+    upgradecost: 58
+  - poweruptype: 1
+    level: 4
+    value: 1.24
+    upgradecost: 69
+  - poweruptype: 1
+    level: 5
+    value: 1.32
+    upgradecost: 83
+  - poweruptype: 1
+    level: 6
+    value: 1.4
+    upgradecost: 100
+  - poweruptype: 1
+    level: 7
+    value: 1.48
+    upgradecost: 119
+  - poweruptype: 1
+    level: 8
+    value: 1.56
+    upgradecost: 143
+  - poweruptype: 1
+    level: 9
+    value: 1.64
+    upgradecost: 172
+  - poweruptype: 1
+    level: 10
+    value: 1.72
+    upgradecost: 206
+  - poweruptype: 2
+    level: 1
+    value: 1
+    upgradecost: 150
+  - poweruptype: 2
+    level: 2
+    value: 2
+    upgradecost: 202
+  - poweruptype: 2
+    level: 3
+    value: 3
+    upgradecost: 273
+  - poweruptype: 2
+    level: 4
+    value: 4
+    upgradecost: 369
+  - poweruptype: 2
+    level: 5
+    value: 5
+    upgradecost: 498
+  - poweruptype: 2
+    level: 6
+    value: 6
+    upgradecost: 673
+  - poweruptype: 2
+    level: 7
+    value: 7
+    upgradecost: 908
+  - poweruptype: 2
+    level: 8
+    value: 8
+    upgradecost: 1226
+  - poweruptype: 2
+    level: 9
+    value: 9
+    upgradecost: 1655
+  - poweruptype: 2
+    level: 10
+    value: 10
+    upgradecost: 2234
+  - poweruptype: 3
+    level: 1
+    value: 3
+    upgradecost: 50
+  - poweruptype: 3
+    level: 2
+    value: 3.2
+    upgradecost: 59
+  - poweruptype: 3
+    level: 3
+    value: 3.4
+    upgradecost: 70
+  - poweruptype: 3
+    level: 4
+    value: 3.6
+    upgradecost: 82
+  - poweruptype: 3
+    level: 5
+    value: 3.8
+    upgradecost: 97
+  - poweruptype: 3
+    level: 6
+    value: 4
+    upgradecost: 114
+  - poweruptype: 3
+    level: 7
+    value: 4.2
+    upgradecost: 135
+  - poweruptype: 3
+    level: 8
+    value: 4.4
+    upgradecost: 159
+  - poweruptype: 3
+    level: 9
+    value: 4.6
+    upgradecost: 188
+  - poweruptype: 3
+    level: 10
+    value: 4.8
+    upgradecost: 222
+  - poweruptype: 4
+    level: 1
+    value: 0
+    upgradecost: 120
+  - poweruptype: 4
+    level: 2
+    value: 0.3
+    upgradecost: 150
+  - poweruptype: 4
+    level: 3
+    value: 0.6
+    upgradecost: 188
+  - poweruptype: 4
+    level: 4
+    value: 0.9
+    upgradecost: 234
+  - poweruptype: 4
+    level: 5
+    value: 1.2
+    upgradecost: 293
+  - poweruptype: 4
+    level: 6
+    value: 1.5
+    upgradecost: 366
+  - poweruptype: 4
+    level: 7
+    value: 1.8
+    upgradecost: 458
+  - poweruptype: 4
+    level: 8
+    value: 2.1
+    upgradecost: 572
+  - poweruptype: 4
+    level: 9
+    value: 2.4
+    upgradecost: 715
+  - poweruptype: 4
+    level: 10
+    value: 2.7
+    upgradecost: 894
+  - poweruptype: 5
+    level: 1
+    value: 100
+    upgradecost: 35
+  - poweruptype: 5
+    level: 2
+    value: 120
+    upgradecost: 41
+  - poweruptype: 5
+    level: 3
+    value: 140
+    upgradecost: 49
+  - poweruptype: 5
+    level: 4
+    value: 160
+    upgradecost: 58
+  - poweruptype: 5
+    level: 5
+    value: 180
+    upgradecost: 68
+  - poweruptype: 5
+    level: 6
+    value: 200
+    upgradecost: 80
+  - poweruptype: 5
+    level: 7
+    value: 220
+    upgradecost: 94
+  - poweruptype: 5
+    level: 8
+    value: 240
+    upgradecost: 111
+  - poweruptype: 5
+    level: 9
+    value: 260
+    upgradecost: 132
+  - poweruptype: 5
+    level: 10
+    value: 280
+    upgradecost: 155
+  - poweruptype: 6
+    level: 1
+    value: 0
+    upgradecost: 90
+  - poweruptype: 6
+    level: 2
+    value: 3
+    upgradecost: 108
+  - poweruptype: 6
+    level: 3
+    value: 6
+    upgradecost: 130
+  - poweruptype: 6
+    level: 4
+    value: 9
+    upgradecost: 156
+  - poweruptype: 6
+    level: 5
+    value: 12
+    upgradecost: 187
+  - poweruptype: 6
+    level: 6
+    value: 15
+    upgradecost: 224
+  - poweruptype: 6
+    level: 7
+    value: 18
+    upgradecost: 269
+  - poweruptype: 6
+    level: 8
+    value: 21
+    upgradecost: 322
+  - poweruptype: 6
+    level: 9
+    value: 24
+    upgradecost: 387
+  - poweruptype: 6
+    level: 10
+    value: 27
+    upgradecost: 464
+  - poweruptype: 7
+    level: 1
+    value: 0
+    upgradecost: 110
+  - poweruptype: 7
+    level: 2
+    value: 5
+    upgradecost: 134
+  - poweruptype: 7
+    level: 3
+    value: 10
+    upgradecost: 164
+  - poweruptype: 7
+    level: 4
+    value: 15
+    upgradecost: 200
+  - poweruptype: 7
+    level: 5
+    value: 20
+    upgradecost: 244
+  - poweruptype: 7
+    level: 6
+    value: 25
+    upgradecost: 297
+  - poweruptype: 7
+    level: 7
+    value: 30
+    upgradecost: 363
+  - poweruptype: 7
+    level: 8
+    value: 35
+    upgradecost: 442
+  - poweruptype: 7
+    level: 9
+    value: 40
+    upgradecost: 540
+  - poweruptype: 7
+    level: 10
+    value: 45
+    upgradecost: 659
+  - poweruptype: 8
+    level: 1
+    value: 4
+    upgradecost: 45
+  - poweruptype: 8
+    level: 2
+    value: 4.15
+    upgradecost: 54
+  - poweruptype: 8
+    level: 3
+    value: 4.3
+    upgradecost: 65
+  - poweruptype: 8
+    level: 4
+    value: 4.45
+    upgradecost: 78
+  - poweruptype: 8
+    level: 5
+    value: 4.6
+    upgradecost: 93
+  - poweruptype: 8
+    level: 6
+    value: 4.75
+    upgradecost: 112
+  - poweruptype: 8
+    level: 7
+    value: 4.9
+    upgradecost: 134
+  - poweruptype: 8
+    level: 8
+    value: 5.05
+    upgradecost: 161
+  - poweruptype: 8
+    level: 9
+    value: 5.2
+    upgradecost: 193
+  - poweruptype: 8
+    level: 10
+    value: 5.35
+    upgradecost: 232
+  - poweruptype: 9
+    level: 1
+    value: 0
+    upgradecost: 70
+  - poweruptype: 9
+    level: 2
+    value: 5
+    upgradecost: 85
+  - poweruptype: 9
+    level: 3
+    value: 10
+    upgradecost: 104
+  - poweruptype: 9
+    level: 4
+    value: 15
+    upgradecost: 127
+  - poweruptype: 9
+    level: 5
+    value: 20
+    upgradecost: 155
+  - poweruptype: 9
+    level: 6
+    value: 25
+    upgradecost: 189
+  - poweruptype: 9
+    level: 7
+    value: 30
+    upgradecost: 231
+  - poweruptype: 9
+    level: 8
+    value: 35
+    upgradecost: 282
+  - poweruptype: 9
+    level: 9
+    value: 40
+    upgradecost: 344
+  - poweruptype: 9
+    level: 10
+    value: 45
+    upgradecost: 419
+  - poweruptype: 10
+    level: 1
+    value: 1.5
+    upgradecost: 60
+  - poweruptype: 10
+    level: 2
+    value: 1.7
+    upgradecost: 71
+  - poweruptype: 10
+    level: 3
+    value: 1.9
+    upgradecost: 84
+  - poweruptype: 10
+    level: 4
+    value: 2.1
+    upgradecost: 99
+  - poweruptype: 10
+    level: 5
+    value: 2.3
+    upgradecost: 116
+  - poweruptype: 10
+    level: 6
+    value: 2.5
+    upgradecost: 137
+  - poweruptype: 10
+    level: 7
+    value: 2.7
+    upgradecost: 162
+  - poweruptype: 10
+    level: 8
+    value: 2.9
+    upgradecost: 191
+  - poweruptype: 10
+    level: 9
+    value: 3.1
+    upgradecost: 226
+  - poweruptype: 10
+    level: 10
+    value: 3.3
+    upgradecost: 266
+  - poweruptype: 11
+    level: 1
+    value: 0
+    upgradecost: 150
+  - poweruptype: 11
+    level: 2
+    value: 5
+    upgradecost: 188
+  - poweruptype: 11
+    level: 3
+    value: 10
+    upgradecost: 234
+  - poweruptype: 11
+    level: 4
+    value: 15
+    upgradecost: 293
+  - poweruptype: 11
+    level: 5
+    value: 20
+    upgradecost: 366
+  - poweruptype: 11
+    level: 6
+    value: 25
+    upgradecost: 458
+  - poweruptype: 11
+    level: 7
+    value: 30
+    upgradecost: 572
+  - poweruptype: 11
+    level: 8
+    value: 35
+    upgradecost: 715
+  - poweruptype: 11
+    level: 9
+    value: 40
+    upgradecost: 894
+  - poweruptype: 11
+    level: 10
+    value: 45
+    upgradecost: 1118
+  - poweruptype: 12
+    level: 1
+    value: 0
+    upgradecost: 180
+  - poweruptype: 12
+    level: 2
+    value: 5
+    upgradecost: 234
+  - poweruptype: 12
+    level: 3
+    value: 10
+    upgradecost: 304
+  - poweruptype: 12
+    level: 4
+    value: 15
+    upgradecost: 395
+  - poweruptype: 12
+    level: 5
+    value: 20
+    upgradecost: 514
+  - poweruptype: 12
+    level: 6
+    value: 25
+    upgradecost: 668
+  - poweruptype: 12
+    level: 7
+    value: 30
+    upgradecost: 869
+  - poweruptype: 12
+    level: 8
+    value: 35
+    upgradecost: 1129
+  - poweruptype: 12
+    level: 9
+    value: 40
+    upgradecost: 1468
+  - poweruptype: 12
+    level: 10
+    value: 45
+    upgradecost: 1909

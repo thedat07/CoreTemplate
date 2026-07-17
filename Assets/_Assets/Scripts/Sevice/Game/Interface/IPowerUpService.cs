@@ -4,6 +4,10 @@ using System.Collections.Generic;
 /*
  * IPowerUpService — Interface cho hệ thống PowerUp.
  * Quản lý các chỉ số tăng cường: Attack, Survival, Bonus.
+ *
+ * Dữ liệu được load từ QuickSheet ScriptableObject:
+ *   Resources.Load<PowerUps>("Data/PowerUps")
+ *   Resources.Load<LevelPreview>("Data/LevelPreview")
  */
 
 public interface IPowerUpService
@@ -21,9 +25,14 @@ public interface IPowerUpService
     float GetEffectValue(PowerUpType type);
     bool IsMaxLevel(PowerUpType type);
     bool IsUnlocked(PowerUpType type);
+    PowerUpsData GetData(PowerUpType type);
+
+    // --- Cost ---
+    int GetUpgradeCost(PowerUpType type);
+    int GetUpgradeCostAtLevel(PowerUpType type, int level);
 
     // --- Operations ---
-    void Upgrade(PowerUpType type);
+    bool TryUpgrade(PowerUpType type);
     void SetLevel(PowerUpType type, int level);
     void ResetAll();
     void Activate(PowerUpType type);

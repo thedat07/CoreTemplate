@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e43d5c1cab0ead42a963900b7f6106b, type: 3}
+  m_Name: PowerUps
+  m_EditorClassIdentifier: 
+  SheetName: Assets/QuickSheet/Data/CircleDefense_UpgradeBalance_Base.xlsx
+  WorksheetName: PowerUps
+  dataArray:
+  - powerupcategory: 0
+    poweruptype: 0
+    displayname: Stronger
+    basevalue: 10
+    perlevel: 2
+    maxlevel: 50
+    basecost: 30
+    costgrowth: 1.18
+    unlockstage: 1
+    iconid: stronger
+    description: Increase damage
+  - powerupcategory: 0
+    poweruptype: 1
+    displayname: Shoot Faster
+    basevalue: 1
+    perlevel: 0.08
+    maxlevel: 30
+    basecost: 40
+    costgrowth: 1.2
+    unlockstage: 1
+    iconid: shoot_faster
+    description: Increase fire rate
+  - powerupcategory: 0
+    poweruptype: 2
+    displayname: More Bullets
+    basevalue: 1
+    perlevel: 1
+    maxlevel: 10
+    basecost: 150
+    costgrowth: 1.35
+    unlockstage: 3
+    iconid: more_bullets
+    description: Shoot extra bullets
+  - powerupcategory: 0
+    poweruptype: 3
+    displayname: Longer Range
+    basevalue: 3
+    perlevel: 0.2
+    maxlevel: 20
+    basecost: 50
+    costgrowth: 1.18
+    unlockstage: 5
+    iconid: longer_range
+    description: Increase attack range
+  - powerupcategory: 0
+    poweruptype: 4
+    displayname: Bigger Boom
+    basevalue: 0
+    perlevel: 0.3
+    maxlevel: 10
+    basecost: 120
+    costgrowth: 1.25
+    unlockstage: 8
+    iconid: bigger_boom
+    description: Increase explosion radius
+  - powerupcategory: 1
+    poweruptype: 5
+    displayname: More Hearts
+    basevalue: 100
+    perlevel: 20
+    maxlevel: 30
+    basecost: 35
+    costgrowth: 1.18
+    unlockstage: 1
+    iconid: more_hearts
+    description: Increase max health
+  - powerupcategory: 1
+    poweruptype: 6
+    displayname: Heal
+    basevalue: 0
+    perlevel: 3
+    maxlevel: 15
+    basecost: 90
+    costgrowth: 1.2
+    unlockstage: 6
+    iconid: heal
+    description: Health regeneration
+  - powerupcategory: 1
+    poweruptype: 7
+    displayname: Shield
+    basevalue: 0
+    perlevel: 5
+    maxlevel: 15
+    basecost: 110
+    costgrowth: 1.22
+    unlockstage: 7
+    iconid: shield
+    description: Damage reduction
+  - powerupcategory: 1
+    poweruptype: 8
+    displayname: Run Faster
+    basevalue: 4
+    perlevel: 0.15
+    maxlevel: 15
+    basecost: 45
+    costgrowth: 1.2
+    unlockstage: 2
+    iconid: run_faster
+    description: Increase move speed
+  - powerupcategory: 2
+    poweruptype: 9
+    displayname: More Coins
+    basevalue: 0
+    perlevel: 5
+    maxlevel: 20
+    basecost: 70
+    costgrowth: 1.22
+    unlockstage: 2
+    iconid: more_coins
+    description: Increase coin reward
+  - powerupcategory: 2
+    poweruptype: 10
+    displayname: Bigger Magnet
+    basevalue: 1.5
+    perlevel: 0.2
+    maxlevel: 15
+    basecost: 60
+    costgrowth: 1.18
+    unlockstage: 4
+    iconid: bigger_magnet
+    description: Increase pickup range
+  - powerupcategory: 2
+    poweruptype: 11
+    displayname: Lucky Box
+    basevalue: 0
+    perlevel: 5
+    maxlevel: 10
+    basecost: 150
+    costgrowth: 1.25
+    unlockstage: 9
+    iconid: lucky_box
+    description: Increase chest chance
+  - powerupcategory: 2
+    poweruptype: 12
+    displayname: Lucky
+    basevalue: 0
+    perlevel: 5
+    maxlevel: 10
+    basecost: 180
+    costgrowth: 1.3
+    unlockstage: 10
+    iconid: lucky
+    description: Increase rare drop chance

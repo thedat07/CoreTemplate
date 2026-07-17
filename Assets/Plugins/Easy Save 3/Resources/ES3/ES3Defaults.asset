@@ -44,6 +44,7 @@ MonoBehaviour:
     - DOTween.Modules
     - LeanCommon
     - LeanPool
+    - Sirenix.OdinInspector.Modules.Unity.Addressables
     - UnityUtils
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
